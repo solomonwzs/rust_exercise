@@ -1,7 +1,24 @@
-fn main() {
-    let mut v = vec![1, 2, 3];
-    v.push(1);
-    for i in v {
-        println!("{}", i);
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
     }
+
+    &s[..]
+}
+
+fn main() {
+    let s = String::from("hello world");
+    let word = first_word(&s);
+
+    // s.clear();
+
+    println!("[{}]", s);
+    println!("[{}]", word);
+
+    // let s = &s[20..];
+    // println!("[{}]", s);
 }
