@@ -6,14 +6,6 @@ mod tests {
     }
 }
 
-mod network {
-    fn connect() {
-        println!("network connect")
-    }
-}
+pub mod network;
 
-mod client {
-    fn connect() {
-        println!("client connect")
-    }
-}
+pub mod client;
