@@ -27,25 +27,30 @@ pub fn area(rectangle: &Rectangle) -> u32 {
     rectangle.width * rectangle.height
 }
 
+pub fn test_struct() {
+    let mut user1 = User {
+        email: String::from("someone@example.com"),
+        username: String::from("someusername123"),
+        active: true,
+        sign_in_count: 1,
+    };
+    user1.email = String::from("anotheremail@example.com");
+    println!("{:#?}", user1);
+
+    let mut rect1 = Rectangle { width: 30, height: 50 };
+    println!("{}", area(&rect1));
+
+    let tmp = &mut rect1;
+    println!("{}", tmp.area());
+}
+
 #[cfg(test)]
 mod test {
     use super::*;
 
     #[test]
-    fn test_struct() {
-        let mut user1 = User {
-            email: String::from("someone@example.com"),
-            username: String::from("someusername123"),
-            active: true,
-            sign_in_count: 1,
-        };
-        user1.email = String::from("anotheremail@example.com");
-        println!("{:#?}", user1);
-
-        let mut rect1 = Rectangle { width: 30, height: 50 };
-        println!("{}", area(&rect1));
-
-        let tmp = &mut rect1;
-        println!("{}", tmp.area());
+    fn it_work() {
+        println!(">>>");
+        test_struct();
     }
 }
