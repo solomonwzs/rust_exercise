@@ -4,6 +4,7 @@ pub mod t_struct;
 pub mod t_vectors;
 pub mod t_string;
 pub mod t_hashmap;
+pub mod t_generic;
 
 fn main() {
     println!("hello world!");
