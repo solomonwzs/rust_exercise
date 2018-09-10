@@ -1,0 +1,10 @@
+[workspace]
+
+members = [
+    "aggregator",
+    "communicator",
+    "guessing_game",
+    "hello_world",
+    "minigrep",
+    "workout_plan",
+]
