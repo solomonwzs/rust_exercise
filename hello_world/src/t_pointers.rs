@@ -17,11 +17,26 @@ impl Display for List {
     }
 }
 
-struct MyBox<T> (T);
+struct MyBox<T: Display> (T);
 
-impl<T> MyBox<T> {
+impl<T: Display> MyBox<T> {
     fn new(x: T) -> MyBox<T> {
         MyBox(x)
+    }
+}
+
+impl<T: Display> Deref for MyBox<T> {
+    type Target = T;
+
+    fn deref(&self) -> &T {
+        println!("deref: {}", self.0);
+        &self.0
+    }
+}
+
+impl<T: Display> Drop for MyBox<T> {
+    fn drop(&mut self) {
+        println!("drop: {}", self.0);
     }
 }
 
@@ -40,11 +55,16 @@ mod test {
 
     #[test]
     fn it_work0() {
+        println!(">>>");
         let x = 5;
-        // let y = MyBox::new(x);
-        let y = Box::new(x);
+        let y = MyBox::new(x);
+        // let y = Box::new(x);
 
         assert_eq!(5, x);
         assert_eq!(5, *y);
+
+        println!("y: {}", *y);
+        drop(y);
+        println!("===");
     }
 }

@@ -3,6 +3,7 @@ pub mod t_generic;
 pub mod t_hashmap;
 pub mod t_lifetime;
 pub mod t_pointers;
+pub mod t_rc;
 pub mod t_slices;
 pub mod t_string;
 pub mod t_struct;
