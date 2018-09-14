@@ -17,7 +17,7 @@ impl Display for List {
     }
 }
 
-struct MyBox<T: Display> (T);
+struct MyBox<T: Display>(T);
 
 impl<T: Display> MyBox<T> {
     fn new(x: T) -> MyBox<T> {
@@ -42,14 +42,13 @@ impl<T: Display> Drop for MyBox<T> {
 
 #[cfg(test)]
 mod test {
-    use super::*;
     use super::List::{Cons, Nil};
+    use super::*;
 
     #[test]
     fn it_work() {
         println!(">>>");
-        let list = Cons(1, Box::new(Cons(2, Box::new(
-                        Cons(3, Box::new(Nil))))));
+        let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
         println!("{}", list);
     }
 
