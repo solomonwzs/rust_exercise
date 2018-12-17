@@ -25,6 +25,16 @@ pub fn test_first_word() {
 }
 
 
+pub fn test_slices() {
+    let mut s0 = String::from("hello");
+    s0.push_str("world");
+    let s1 = &s0[0..3];
+    // s0.push_str("!");
+
+    println!("[{}], [{}]", s0, s1);
+}
+
+
 #[cfg(test)]
 mod test {
     use super::*;
@@ -33,5 +43,6 @@ mod test {
     fn it_work() {
         println!(">>>");
         test_first_word();
+        test_slices();
     }
 }

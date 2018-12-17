@@ -1,3 +1,5 @@
+extern crate communicator;
+
 pub mod t_enum;
 pub mod t_generic;
 pub mod t_hashmap;
@@ -23,4 +25,6 @@ fn main() {
     let s0 = &mut s;
     foo(s0);
     println!("{}", s0);
+
+    communicator::network::connect();
 }
