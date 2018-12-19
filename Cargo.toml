@@ -7,4 +7,5 @@ members = [
     "hello_world",
     "minigrep",
     "workout_plan",
+    "mock_test",
 ]
