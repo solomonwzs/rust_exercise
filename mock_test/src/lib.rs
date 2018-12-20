@@ -57,6 +57,8 @@ mod tests {
 
     #[test]
     fn it_sends() {
+        println!(">>>");
+
         let mock_messenger = MockMessenger::new();
         let mut limit_tracker = LimitTracker::new(&mock_messenger, 100);
 

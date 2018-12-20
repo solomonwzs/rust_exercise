@@ -10,6 +10,15 @@ pub enum IpAddr {
     V6(String),
 }
 
+impl IpAddr {
+    pub fn foo(&self) -> &String {
+        match self {
+            IpAddr::V4(s) => s,
+            IpAddr::V6(s) => s,
+        }
+    }
+}
+
 pub fn test_enum() {
     let home = IpAddr::V4(String::from("127.0.0.1"));
     let loopback = IpAddr::V6(String::from("::1"));
