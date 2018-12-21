@@ -8,4 +8,5 @@ members = [
     "minigrep",
     "workout_plan",
     "mock_test",
+    "sync_test",
 ]
