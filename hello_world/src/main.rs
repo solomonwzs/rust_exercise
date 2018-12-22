@@ -10,6 +10,7 @@ pub mod t_slices;
 pub mod t_string;
 pub mod t_struct;
 pub mod t_vectors;
+pub mod t_trait;
 
 fn foo(s: &mut String) {
     s.push_str("b")
