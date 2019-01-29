@@ -8,7 +8,7 @@ fn main() {
     let (tx, rx) = mpsc::channel();
     let tx_copy = mpsc::Sender::clone(&tx);
 
-    thread::spawn(move || {
+    let h0 = thread::spawn(move || {
         let vals = vec![
             String::from("a"),
             String::from("b"),
@@ -22,7 +22,7 @@ fn main() {
         }
     });
 
-    thread::spawn(move || {
+    let h1 = thread::spawn(move || {
         let vals = vec![
             String::from("A"),
             String::from("B"),
@@ -39,4 +39,6 @@ fn main() {
     for received in rx {
         println!("got: {}", received);
     }
+    h0.join().unwrap();
+    h1.join().unwrap();
 }

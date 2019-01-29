@@ -21,6 +21,16 @@ fn t_mem_shared() {
     println!("Result: {}", *counter.lock().unwrap());
 }
 
+fn t_move() {
+    let v = vec![1, 2, 3];
+
+    let handle = thread::spawn(move || {
+        println!("Here's a vector: {:?}", v);
+    });
+
+    handle.join().unwrap();
+}
+
 #[cfg(test)]
 mod test {
     use super::*;
@@ -29,5 +39,11 @@ mod test {
     fn it_work() {
         println!(">>>");
         t_mem_shared();
+    }
+
+    #[test]
+    fn it_work0() {
+        println!(">>>");
+        t_move();
     }
 }
